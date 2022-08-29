@@ -1,6 +1,6 @@
 # My journey doing the challenge
 
-In this document, you'll find all details about my journey building the project.
+In this document, you'll find all details about my journey building this project.
 
 ## Machine setup to start building the project
 
@@ -37,6 +37,8 @@ In this document, you'll find all details about my journey building the project.
     └── index.html
 ├── build/
 ├── .editorconfig
+├── .babelrc
+├── package.json
 └── webpack.config.js
 
 ```
@@ -44,15 +46,17 @@ In this document, you'll find all details about my journey building the project.
 ### Project structure explanation
 
 - `src`: represents the project code to be maintained
-    - `components`: represents the stateless and shared components
-    - `features`: represents the stateful components
-    - `screens`: represents the page screens
-    - `index.js`: is the application entry point, the project initialization and render should happen here
+  - `components`: represents the stateless and shared components
+  - `features`: represents the stateful components
+  - `screens`: represents the page screens
+  - `index.js`: is the application entry point, the project initialization and render should happen here
 - `public`: represents static files that would be accessed via HTTP
-    - `index.html`: is the document to be loaded by the browser to start the SPA and load the necessary resources
+  - `index.html`: is the document to be loaded by the browser to start the SPA and load the necessary resources
 - `build`: represents the code generated after the building process and the code to be used in a production environment
 - `.editorconfig`: config to a VS Code extension to set some files pattern
 - `webpack.config.js`: all the build processes and optimization will be in this file
+- `.babelrc`: the Babel configurations
+- `package.json`: project metadata, here you find project dependencies, dev dependencies and other metadata.
 
 ## Webpack
 
@@ -97,8 +101,9 @@ Code splitting was configured in this app looking to optimize the first bundle l
 Was configured the `webpack-dev-server` to get easily some abilities like updating the browser on changes.
 
 Some configurations were applied in the client config that are:
-  - `overlay`, to show on the screen when an error occurs,
-  - `logging` to log info on the browser
+
+- `overlay`, to show on the screen when an error occurs,
+- `logging` to log info on the browser
 
 And the `port` also was configured to receive a custom port from the `PORT` environment variable or set the default which is `3000`.
 
@@ -116,3 +121,26 @@ The dependencies below are important to make Babel work.
 ### Presets
 
 `@babel/preset-react` was defined to enable the use of JSX and other configs to make the React work. As config options were put the `"runtime": "automatic"` to not be necessary always import the react on each file.
+
+## Linter and Formatter
+
+### Dependencies
+
+```
+"eslint": "^8.23.0",
+"eslint-config-prettier": "^8.5.0",
+"eslint-plugin-import": "^2.26.0",
+"eslint-plugin-jsx-a11y": "^6.6.1",
+"eslint-plugin-prettier": "^4.2.1",
+"eslint-plugin-react": "^7.31.1",
+"eslint-plugin-react-hooks": "^4.6.0",
+"prettier": "^2.7.1",
+```
+
+> JSX [a11y](https://www.a11yproject.com/) help us to keep good practices about accessibility.
+
+The Eslint and Prettier were configured to check code problems and code format. This approach helps to keep a code pattern between developers.
+
+We can use its config to always run on continuous integrations.
+
+If you have the VS Code extensions, Prettier and Eslint installed, you will see errors on development time.
