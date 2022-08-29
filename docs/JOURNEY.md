@@ -144,3 +144,31 @@ The Eslint and Prettier were configured to check code problems and code format. 
 We can use its config to always run on continuous integrations.
 
 If you have the VS Code extensions, Prettier and Eslint installed, you will see errors on development time.
+
+## Tailwind
+
+To introduce CSS in the application is needed to prepare Webpack to can process this work through loaders.
+
+The dependencies necessary were:
+
+```
+"style-loader": "^3.3.1",
+"css-loader": "^6.7.1",
+```
+
+To prepare the Webpack to work with Tailwind was necessary the config below:
+
+### Dependencies
+
+```
+"postcss-loader": "^7.0.1",
+"tailwindcss": "^3.1.8",
+```
+
+### Tailwind Config
+
+`tailwind.config.js`: in this file, you can talk to tailwind some configurations but in our case no configuration was necessary.
+
+### PostCSS
+
+This is the core configuration because the tailwind was applied by PostCSS via Webpack loader. After this, the styles were applied in the `global.css` that is called in the `App.js`.
