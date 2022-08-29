@@ -172,3 +172,16 @@ To prepare the Webpack to work with Tailwind was necessary the config below:
 ### PostCSS
 
 This is the core configuration because the tailwind was applied by PostCSS via Webpack loader. After this, the styles were applied in the `global.css` that is called in the `App.js`.
+
+
+---
+
+## Design
+
+You'll find the Figma made in the following link:
+
+https://www.figma.com/file/8RpTyQixcl0pVIHoc3Oti8/Income-tax-calculator
+
+### Considerations
+
+To build the layout some characteristics were used looking for TailwindCSS patterns like spacing, colors, font size and other values.
