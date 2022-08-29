@@ -90,7 +90,7 @@ This plugin was installed and configured to get the entry point script and its c
 
 This part of the Webpack configuration is very important to make the application work with JSX and all presets necessary to run React.
 
-> This configuration is applied just on `.js` files
+To make the `.jsx` files to be understand by Webpack, the `resolve.extensions` and `test: /\.jsx?$/` was needed.
 
 ### Code Splitting
 
