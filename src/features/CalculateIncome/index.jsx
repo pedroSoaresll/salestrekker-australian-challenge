@@ -2,8 +2,8 @@ import { Button, Input, Select } from '../../components'
 
 export const CalculateIncome = () => {
   return (
-    <div className="p-7 flex flex-col justify-center bg-white">
-      <h1 className="text-center text-3xl">Income tax calculator</h1>
+    <div className="p-7 flex flex-col justify-center">
+      <span className="text-center text-3xl">Income tax calculator</span>
 
       <div className="mt-9 flex flex-col gap-6">
         <div

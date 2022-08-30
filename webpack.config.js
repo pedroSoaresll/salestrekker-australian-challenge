@@ -43,5 +43,6 @@ module.exports = {
       overlay: true,
       logging: 'info',
     },
+    historyApiFallback: true,
   },
 }

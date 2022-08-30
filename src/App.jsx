@@ -1,11 +1,11 @@
 import './global.css'
 import { StrictMode } from 'react'
-import { Home } from './screens/Home'
+import { Screens } from './screens'
 
 export const App = () => {
   return (
     <StrictMode>
-      <Home />
+      <Screens />
     </StrictMode>
   )
 }
