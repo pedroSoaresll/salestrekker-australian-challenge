@@ -1,4 +1,4 @@
-import { Card } from '../components/Card'
+import { Card } from '../components'
 import { CalculateIncome } from '../features'
 import CalculateIncomeImg from '../images/calculate-income.svg'
 

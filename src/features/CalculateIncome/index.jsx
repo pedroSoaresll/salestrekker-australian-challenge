@@ -1,5 +1,4 @@
-import { Button, Input } from '../../components'
-import { Select } from '../../components/Select'
+import { Button, Input, Select } from '../../components'
 
 export const CalculateIncome = () => {
   return (
