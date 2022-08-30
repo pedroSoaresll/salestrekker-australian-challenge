@@ -30,6 +30,11 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
+      {
+        test: /\.svg$/i,
+        issuer: /\.jsx?$/,
+        use: ['@svgr/webpack'],
+      },
     ],
   },
   devServer: {
