@@ -5,6 +5,14 @@
       {
         "runtime": "automatic"
       }
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
     ]
   ]
 }
