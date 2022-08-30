@@ -185,3 +185,28 @@ https://www.figma.com/file/8RpTyQixcl0pVIHoc3Oti8/Income-tax-calculator
 ### Considerations
 
 To build the layout some characteristics were used looking for TailwindCSS patterns like spacing, colors, font size and other values.
+
+## Jest setup
+
+### Dependencies
+
+```
+"@babel/preset-env": "^7.18.10",
+"@testing-library/react": "^13.3.0",
+"@testing-library/user-event": "^14.4.3",
+"eslint-plugin-jest": "^27.0.1",
+"jest": "^29.0.1",
+"jest-environment-jsdom": "^29.0.1",
+```
+
+### Jest Config
+
+A basic and useful configuration was defined in the `jest.config.js` file. Also was added the script `yarn test` to run the tests.
+
+I'm using the [React Testing Library](https://testing-library.com/) to make asserts on the code. I like to use it because it forces you to validate your code by thinking accessibility-first.
+
+To simulate user events was configured the [`userEvent`](https://testing-library.com/docs/ecosystem-user-event).
+
+### Jest Eslint
+
+Looking to help with written tests was configured the jest Eslint plugin and added to `.eslintrc` the `'plugin:jest/recommended'` plugin.
