@@ -3,22 +3,21 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input, Select } from '../../components'
 import { frequencies } from '../../constants/frequencies'
-import { formatNumber } from '../../utils/numbers'
+import { formatNumber, onlyNumbers } from '../../utils/numbers'
 
 const listFrequencies = Object.values(frequencies)
 
 export const CalculateIncome = () => {
   const navigate = useNavigate()
-  const { register, handleSubmit, watch, setValue } = useForm({
+  const { register, handleSubmit, watch, setValue, formState } = useForm({
     defaultValues: {
       income: 0,
       frequency: frequencies.weekly,
       incomeType: '',
     },
   })
-
-  const incomeTypeWatch = watch('incomeType')
-  const incomeWatch = watch('income')
+  const incomeTypeWatch = watch('incomeType', '')
+  const incomeWatch = watch('income', 0)
 
   useEffect(() => {
     const incomeFormatted = formatNumber(incomeWatch)
@@ -47,14 +46,24 @@ export const CalculateIncome = () => {
           className="grid gap-x-4"
           style={{ gridTemplateColumns: '2fr 1fr' }}
         >
-          <label>
-            <span className="text-base">What is your total income?</span>
-            <Input
-              className="mt-2 w-full"
-              {...register('income')}
-              inputMode="numeric"
-            />
-          </label>
+          <div className="relative">
+            <label>
+              <span className="text-base">What is your total income?</span>
+              <Input
+                className="mt-2 w-full"
+                {...register('income', {
+                  required: true,
+                  validate: (value) => onlyNumbers(value) > 0,
+                })}
+                inputMode="numeric"
+              />
+            </label>
+            {formState.errors.income?.type === 'validate' && (
+              <p className="text-sm text-red-400 absolute -bottom-5">
+                The income value needs to be more than 0.
+              </p>
+            )}
+          </div>
 
           <Select className="self-end capitalize" {...register('frequency')}>
             {listFrequencies.map((frequency) => (
@@ -65,7 +74,7 @@ export const CalculateIncome = () => {
           </Select>
         </div>
 
-        <div className="block">
+        <div className="block relative">
           <span className="text-base">Choose the income type</span>
 
           <div className="flex flex-row gap-x-2 mt-2">
@@ -91,6 +100,11 @@ export const CalculateIncome = () => {
               Net income
             </Button>
           </div>
+          {formState.errors.incomeType?.type === 'required' && (
+            <p className="text-sm text-red-400 absolute -bottom-5">
+              Incoming type is a required field.
+            </p>
+          )}
         </div>
       </div>
 
