@@ -5,6 +5,8 @@ import { Button, Input, Select } from '../../components'
 import { frequencies } from '../../constants/frequencies'
 import { formatNumber } from '../../utils/numbers'
 
+const listFrequencies = Object.values(frequencies)
+
 export const CalculateIncome = () => {
   const navigate = useNavigate()
   const { register, handleSubmit, watch, setValue } = useForm({
@@ -14,11 +16,9 @@ export const CalculateIncome = () => {
       incomeType: '',
     },
   })
-  const registerIncomeType = register('incomeType', { required: true })
-  const incomeType = watch('incomeType')
-  const incomeWatch = watch('income')
 
-  const listFrequencies = Object.values(frequencies)
+  const incomeTypeWatch = watch('incomeType')
+  const incomeWatch = watch('income')
 
   useEffect(() => {
     const incomeFormatted = formatNumber(incomeWatch)
@@ -69,41 +69,27 @@ export const CalculateIncome = () => {
           <span className="text-base">Choose the income type</span>
 
           <div className="flex flex-row gap-x-2 mt-2">
-            <label htmlFor="gross_income">
-              <input
-                type="radio"
-                value="gross_income"
-                id="gross_income"
-                className="hidden"
-                {...registerIncomeType}
-              />
-              <div className="cursor-pointer">
-                <Button
-                  className="pointer-events-none"
-                  variant={incomeType === 'gross_income' ? 'primary' : null}
-                >
-                  Gross income
-                </Button>
-              </div>
-            </label>
+            <input
+              className="hidden"
+              type="text"
+              name="default"
+              {...register('incomeType', { required: true })}
+            />
+            <Button
+              type="button"
+              variant={incomeTypeWatch === 'gross_income' ? 'primary' : null}
+              onClick={() => setValue('incomeType', 'gross_income')}
+            >
+              Gross income
+            </Button>
 
-            <label htmlFor="net_income">
-              <input
-                type="radio"
-                value="net_income"
-                id="net_income"
-                className="hidden"
-                {...registerIncomeType}
-              />
-              <div className="cursor-pointer">
-                <Button
-                  className="pointer-events-none"
-                  variant={incomeType === 'net_income' ? 'primary' : null}
-                >
-                  Net income
-                </Button>
-              </div>
-            </label>
+            <Button
+              type="button"
+              variant={incomeTypeWatch === 'net_income' ? 'primary' : null}
+              onClick={() => setValue('incomeType', 'net_income')}
+            >
+              Net income
+            </Button>
           </div>
         </div>
       </div>
