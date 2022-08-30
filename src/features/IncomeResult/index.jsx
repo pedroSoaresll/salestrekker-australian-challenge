@@ -1,12 +1,9 @@
 import { Button, Select } from '../../components'
+import { formatNumber } from '../../utils/numbers'
 
 export const IncomeResult = () => {
   const frequency = 'Monthly'
-  const netIncome = new Intl.NumberFormat('en', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(33500)
+  const netIncome = formatNumber(33500)
 
   return (
     <div className="p-6 flex flex-col justify-between">
