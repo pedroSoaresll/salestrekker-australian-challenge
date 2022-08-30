@@ -3,7 +3,7 @@ import { Select } from '../../components/Select'
 
 export const CalculateIncome = () => {
   return (
-    <div className="p-7 flex flex-col justify-center">
+    <div className="p-7 flex flex-col justify-center bg-white">
       <h1 className="text-center text-3xl">Income tax calculator</h1>
 
       <div className="mt-9 flex flex-col gap-6">
