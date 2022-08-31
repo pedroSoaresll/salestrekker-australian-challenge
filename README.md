@@ -28,6 +28,18 @@ Run the tests
 yarn test
 ```
 
+Check linters
+
+```sh
+yarn lint
+```
+
+Check code format
+
+```sh
+yarn format
+```
+
 > Note: on a CI environment the tests will be ran in headless mode
 
 Build the app
