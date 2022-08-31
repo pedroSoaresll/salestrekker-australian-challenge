@@ -4,6 +4,7 @@ import { Button, Select } from '../../components'
 import { formatNumber } from '../../utils/numbers'
 import { FREQUENCIES } from '../../constants/tax'
 import { useState } from 'react'
+import { useIncomeTax } from '../../hooks/use-income-tax'
 
 const netIncome = formatNumber(33500)
 const listFrequencies = Object.values(FREQUENCIES)
@@ -11,6 +12,8 @@ const listFrequencies = Object.values(FREQUENCIES)
 export const IncomeResult = () => {
   const location = useLocation()
   const navigate = useNavigate()
+  const useIncome = useIncomeTax()
+  console.log(useIncome)
 
   const { state } = location
 

@@ -1,6 +1,6 @@
 import { FREQUENCIES, INCOME_TYPE } from '../constants/tax'
 
-const TAX_PERCENTAGE = 0.06
+export const TAX_PERCENTAGE = 0.06
 
 const frequencyToDay = {
   [FREQUENCIES.weekly]: 7,
@@ -22,12 +22,18 @@ export function calcIncomeTax(value, incomeType) {
   }
 }
 
-export function calcTax({ income, incomeType, frequency }) {
+export function calcIncomeTaxByFrequency({ income, incomeType, frequency }) {
   const incomeByDay = income / frequencyToDay[frequency]
+
   const weeklyResult = calcIncomeTax(incomeByDay * 7, incomeType)
   const fortnightlyResult = calcIncomeTax(incomeByDay * 15, incomeType)
   const monthlyResult = calcIncomeTax(incomeByDay * 30, incomeType)
   const annuallyResult = calcIncomeTax(incomeByDay * 30 * 12, incomeType)
 
-  return [weeklyResult, fortnightlyResult, monthlyResult, annuallyResult]
+  return [weeklyResult, fortnightlyResult, monthlyResult, annuallyResult].map(
+    (result, index) => ({
+      ...result,
+      frequency: Object.values(FREQUENCIES)[index],
+    })
+  )
 }

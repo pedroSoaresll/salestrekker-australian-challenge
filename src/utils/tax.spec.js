@@ -1,5 +1,5 @@
 import { FREQUENCIES, INCOME_TYPE } from '../constants/tax'
-import { calcIncomeTax, calcTax } from './tax'
+import { calcIncomeTax, calcIncomeTaxByFrequency } from './tax'
 
 describe('utils - tax', () => {
   test('should calculate the correct tax from a value when gross income', () => {
@@ -20,22 +20,22 @@ describe('utils - tax', () => {
 
   describe('gross income tax calculation', () => {
     const incomeType = INCOME_TYPE.grossIncome
-    const weekly = calcTax({
+    const weekly = calcIncomeTaxByFrequency({
       income: 1166.6667,
       frequency: FREQUENCIES.weekly,
       incomeType,
     })
-    const fortnightly = calcTax({
+    const fortnightly = calcIncomeTaxByFrequency({
       income: 2500,
       frequency: FREQUENCIES.fortnightly,
       incomeType,
     })
-    const monthly = calcTax({
+    const monthly = calcIncomeTaxByFrequency({
       income: 5000,
       frequency: FREQUENCIES.monthly,
       incomeType,
     })
-    const annually = calcTax({
+    const annually = calcIncomeTaxByFrequency({
       income: 60000,
       frequency: FREQUENCIES.annually,
       incomeType,
@@ -53,30 +53,28 @@ describe('utils - tax', () => {
             grossIncome: 1166.67,
             netIncome: 1096.67,
             tax: 70,
-          })
-
-          expect(weeklyResult).toMatchObject({
-            grossIncome: 1166.67,
-            netIncome: 1096.67,
-            tax: 70,
+            frequency: FREQUENCIES.weekly,
           })
 
           expect(fortnightlyResult).toMatchObject({
             grossIncome: 2500,
             netIncome: 2350,
             tax: 150,
+            frequency: FREQUENCIES.fortnightly,
           })
 
           expect(monthlyResult).toMatchObject({
             grossIncome: 5000,
             netIncome: 4700,
             tax: 300,
+            frequency: FREQUENCIES.monthly,
           })
 
           expect(annuallyResult).toMatchObject({
             grossIncome: 60000,
             netIncome: 56400,
             tax: 3600,
+            frequency: FREQUENCIES.annually,
           })
         })
       }
@@ -84,22 +82,22 @@ describe('utils - tax', () => {
   })
 
   describe('net income tax calculation', () => {
-    const weekly = calcTax({
+    const weekly = calcIncomeTaxByFrequency({
       income: 1166.6667,
       incomeType: INCOME_TYPE.netIncome,
       frequency: FREQUENCIES.weekly,
     })
-    const fortnightly = calcTax({
+    const fortnightly = calcIncomeTaxByFrequency({
       income: 2500,
       incomeType: INCOME_TYPE.netIncome,
       frequency: FREQUENCIES.fortnightly,
     })
-    const monthly = calcTax({
+    const monthly = calcIncomeTaxByFrequency({
       income: 5000,
       incomeType: INCOME_TYPE.netIncome,
       frequency: FREQUENCIES.monthly,
     })
-    const annually = calcTax({
+    const annually = calcIncomeTaxByFrequency({
       income: 60000,
       incomeType: INCOME_TYPE.netIncome,
       frequency: FREQUENCIES.annually,
@@ -117,24 +115,28 @@ describe('utils - tax', () => {
             grossIncome: 1236.67,
             netIncome: 1166.67,
             tax: 70,
+            frequency: FREQUENCIES.weekly,
           })
 
           expect(fortnightlyResult).toMatchObject({
             grossIncome: 2650,
             netIncome: 2500,
             tax: 150,
+            frequency: FREQUENCIES.fortnightly,
           })
 
           expect(monthlyResult).toMatchObject({
             grossIncome: 5300,
             netIncome: 5000,
             tax: 300,
+            frequency: FREQUENCIES.monthly,
           })
 
           expect(annuallyResult).toMatchObject({
             grossIncome: 63600,
             netIncome: 60000,
             tax: 3600,
+            frequency: FREQUENCIES.annually,
           })
         })
       }
