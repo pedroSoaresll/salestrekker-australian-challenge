@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Select } from '../../components'
 import { FREQUENCIES } from '../../constants/tax'
-import { useState } from 'react'
 import { useIncomeTax } from '../../hooks/use-income-tax'
 import { TableRow } from './Table'
 import { useCallback } from 'react'
@@ -13,8 +12,6 @@ const listFrequencies = Object.values(FREQUENCIES)
 export const IncomeResult = () => {
   const location = useLocation()
   const { state } = location
-
-  const [frequency] = useState(state?.frequency)
 
   const navigate = useNavigate()
 
@@ -51,7 +48,7 @@ export const IncomeResult = () => {
             <span>
               Your net{' '}
               <span className="font-bold text-base text-emerald-600 capitalize">
-                {frequency}
+                {incomeTaxFrequencyCalculation?.frequency}
               </span>{' '}
               income:
             </span>
