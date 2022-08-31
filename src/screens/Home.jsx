@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom'
 import { Card } from '../components'
 import { CalculateIncome, IncomeResult } from '../features'
-import CalculateIncomeImg from '../images/calculate-income.svg'
-import IncomeResultImg from '../images/income-result.svg'
+import { ReactComponent as CalculateIncomeImg } from '../images/calculate-income.svg'
+import { ReactComponent as IncomeResultImg } from '../images/income-result.svg'
 
 export const Home = () => {
   const location = useLocation()
