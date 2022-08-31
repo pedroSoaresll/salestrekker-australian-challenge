@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": "16.17.0",
+    "yarn": "1.22.x"
+  },
   "scripts": {
     "start": "webpack serve",
     "build": "webpack",
