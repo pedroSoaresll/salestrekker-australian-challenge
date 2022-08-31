@@ -9,6 +9,15 @@ You'll find more details about my journey on the [`docs/JOURNEY.md`](https://git
 ## Screenshots
 
 See the app screenshots in the [`docs/SCREENSHOTS.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/SCREENSHOTS.md)
+
+## Deployment
+
+This app was deployed into Vercel. Every push to the branch main will trigger a new deployment to the production environment.
+
+[Access the app in the production environment](https://salestrekker-australian-challenge.vercel.app/)
+
+> Note: HTTPS is by default defined for the domain. :)
+
 ## Install locally
 
 > Note: the engine necessary to work with this application is `node: v16.17.0` and `yarn: 1.22.x`
