@@ -6,6 +6,9 @@ This repository is about a front-end challenge for an Australian company.
 
 You'll find more details about my journey on the [`docs/JOURNEY.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/JOURNEY.md)
 
+## Screenshots
+
+See the app screenshots in the [`docs/SCREENSHOTS.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/SCREENSHOTS.md)
 ## Install locally
 
 > Note: the engine necessary to work with this application is `node: v16.17.0` and `yarn: 1.22.x`
