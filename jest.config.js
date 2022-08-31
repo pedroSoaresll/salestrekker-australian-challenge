@@ -6,4 +6,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/__tests__/setup-jest.js'],
   testMatch: ['**/?(*.)+(spec|test).js?(x)'],
+  moduleNameMapper: {
+    '\\.svg$': '<rootDir>/__tests__/mock-svg.js',
+  },
 }
