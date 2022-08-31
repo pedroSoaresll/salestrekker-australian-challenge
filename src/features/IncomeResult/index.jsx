@@ -14,7 +14,7 @@ export const IncomeResult = () => {
   const location = useLocation()
   const { state } = location
 
-  const [frequency] = useState(state.frequency)
+  const [frequency] = useState(state?.frequency)
 
   const navigate = useNavigate()
 
@@ -64,7 +64,7 @@ export const IncomeResult = () => {
             <span>Change frequency:</span>
             <Select
               className="capitalize"
-              defaultValue={state.frequency}
+              defaultValue={state?.frequency}
               onChange={handleFrequencyChange}
             >
               {listFrequencies.map((frequency) => (
