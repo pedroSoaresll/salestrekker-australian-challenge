@@ -22,15 +22,3 @@ describe('hooks - useIncomeTax', () => {
     expect(result.current.calculation).toHaveLength(4)
   })
 })
-
-// const structure = {
-//   tax_percentage: '',
-//   calculation: [
-//     {
-//       frequency: '',
-//       grossIncome: '',
-//       netIncome: '',
-//       tax: '',
-//     },
-//   ],
-// }
