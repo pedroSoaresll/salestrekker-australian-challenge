@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
-import { formatNumber } from '../../utils/numbers'
+import { formatNumber } from '../../../utils/numbers'
 
 export const TableRow = ({ item }) => {
   const location = useLocation()

@@ -4,7 +4,7 @@ import { Button, Select } from '../../components'
 import { FREQUENCIES } from '../../constants/tax'
 import { useState } from 'react'
 import { useIncomeTax } from '../../hooks/use-income-tax'
-import { TableRow } from './TableRow'
+import { TableRow } from './Table'
 import { useCallback } from 'react'
 import { formatNumber } from '../../utils/numbers'
 
