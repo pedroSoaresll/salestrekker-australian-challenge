@@ -1,29 +1,47 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Select } from '../../components'
-import { formatNumber } from '../../utils/numbers'
 import { FREQUENCIES } from '../../constants/tax'
 import { useState } from 'react'
 import { useIncomeTax } from '../../hooks/use-income-tax'
+import { TableRow } from './TableRow'
+import { useCallback } from 'react'
+import { formatNumber } from '../../utils/numbers'
 
-const netIncome = formatNumber(33500)
 const listFrequencies = Object.values(FREQUENCIES)
 
 export const IncomeResult = () => {
   const location = useLocation()
-  const navigate = useNavigate()
-  const useIncome = useIncomeTax()
-  console.log(useIncome)
-
   const { state } = location
 
   const [frequency] = useState(state.frequency)
 
+  const navigate = useNavigate()
+
+  const { calculation: taxCalculation } = useIncomeTax()
+  const incomeTaxFrequencyCalculation = taxCalculation.find(
+    (item) => item.frequency === state.frequency
+  )
+
+  function handleFrequencyChange(event) {
+    const frequency = event.currentTarget.value
+    navigate('/income-results', {
+      state: {
+        ...state,
+        frequency,
+      },
+    })
+  }
+
+  const backNavigation = useCallback(() => {
+    navigate('/')
+  }, [navigate])
+
   useEffect(() => {
     if (!state) {
-      navigate('/')
+      backNavigation()
     }
-  }, [navigate, state])
+  }, [state, backNavigation])
 
   return (
     <div className="p-6 flex flex-col justify-between">
@@ -38,13 +56,17 @@ export const IncomeResult = () => {
               income:
             </span>
             <span className="text-4xl font-bold text-violet-600">
-              {netIncome}
+              {formatNumber(incomeTaxFrequencyCalculation?.netIncome)}
             </span>
           </div>
 
           <label className="flex flex-col gap-y-3 justify-between">
             <span>Change frequency:</span>
-            <Select className="capitalize" defaultValue={state.frequency}>
+            <Select
+              className="capitalize"
+              defaultValue={state.frequency}
+              onChange={handleFrequencyChange}
+            >
               {listFrequencies.map((frequency) => (
                 <option key={frequency} value={frequency}>
                   {frequency}
@@ -65,36 +87,19 @@ export const IncomeResult = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="px-4 py-2">Monthly</td>
-                <td className="px-4 py-2">$1,000</td>
-                <td className="px-4 py-2">$1,000</td>
-                <td className="px-4 py-2">$1,000</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2 text-violet-600">Monthly</td>
-                <td className="px-4 py-2 text-violet-600">$1,000</td>
-                <td className="px-4 py-2 text-violet-600">$1,000</td>
-                <td className="px-4 py-2 text-violet-600">$1,000</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2">Monthly</td>
-                <td className="px-4 py-2">$1,000</td>
-                <td className="px-4 py-2">$1,000</td>
-                <td className="px-4 py-2">$1,000</td>
-              </tr>
-              <tr>
-                <td className="px-4 py-2">Monthly</td>
-                <td className="px-4 py-2">$1,000</td>
-                <td className="px-4 py-2">$1,000</td>
-                <td className="px-4 py-2">$1,000</td>
-              </tr>
+              {taxCalculation.map((item) => (
+                <TableRow key={item.frequency} item={item} />
+              ))}
             </tbody>
           </table>
         </div>
       </div>
 
-      <Button className="w-3/4 self-center lg:mt-0 sm:mt-20" variant="primary">
+      <Button
+        className="w-3/4 self-center lg:mt-0 sm:mt-20"
+        variant="primary"
+        onClick={backNavigation}
+      >
         Done
       </Button>
     </div>

@@ -23,7 +23,7 @@ export const CalculateIncome = () => {
   const isIncomeTypeNet = incomeTypeWatch === INCOME_TYPE.netIncome
 
   useEffect(() => {
-    const incomeFormatted = formatNumber(incomeWatch)
+    const incomeFormatted = formatNumber(onlyNumbers(incomeWatch))
     setValue('income', incomeFormatted)
   }, [incomeWatch, setValue])
 
