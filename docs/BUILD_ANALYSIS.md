@@ -2,8 +2,9 @@
 
 Note the optimization between production and development build mode on the `main.bundle.js`.
 
-Production: `206 KiB`
-Development: `1.46 MiB`
+**Production**: `206 KiB`
+
+**Development**: `1.46 MiB`
 
 ## Production build result
 
