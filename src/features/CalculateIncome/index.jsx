@@ -2,22 +2,25 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input, Select } from '../../components'
-import { frequencies } from '../../constants/frequencies'
+import { FREQUENCIES, INCOME_TYPE } from '../../constants/tax'
 import { formatNumber, onlyNumbers } from '../../utils/numbers'
 
-const listFrequencies = Object.values(frequencies)
+const listFrequencies = Object.values(FREQUENCIES)
 
 export const CalculateIncome = () => {
   const navigate = useNavigate()
   const { register, handleSubmit, watch, setValue, formState } = useForm({
     defaultValues: {
       income: 0,
-      frequency: frequencies.weekly,
+      frequency: FREQUENCIES.weekly,
       incomeType: '',
     },
   })
   const incomeTypeWatch = watch('incomeType', '')
   const incomeWatch = watch('income', 0)
+
+  const isIncomeTypeGross = incomeTypeWatch === INCOME_TYPE.grossIncome
+  const isIncomeTypeNet = incomeTypeWatch === INCOME_TYPE.netIncome
 
   useEffect(() => {
     const incomeFormatted = formatNumber(incomeWatch)
@@ -86,16 +89,16 @@ export const CalculateIncome = () => {
             />
             <Button
               type="button"
-              variant={incomeTypeWatch === 'gross_income' ? 'primary' : null}
-              onClick={() => setValue('incomeType', 'gross_income')}
+              variant={isIncomeTypeGross ? 'primary' : null}
+              onClick={() => setValue('incomeType', INCOME_TYPE.grossIncome)}
             >
               Gross income
             </Button>
 
             <Button
               type="button"
-              variant={incomeTypeWatch === 'net_income' ? 'primary' : null}
-              onClick={() => setValue('incomeType', 'net_income')}
+              variant={isIncomeTypeNet ? 'primary' : null}
+              onClick={() => setValue('incomeType', INCOME_TYPE.netIncome)}
             >
               Net income
             </Button>

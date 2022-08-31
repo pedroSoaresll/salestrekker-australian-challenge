@@ -1,9 +1,26 @@
+import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Select } from '../../components'
 import { formatNumber } from '../../utils/numbers'
+import { FREQUENCIES } from '../../constants/tax'
+import { useState } from 'react'
+
+const netIncome = formatNumber(33500)
+const listFrequencies = Object.values(FREQUENCIES)
 
 export const IncomeResult = () => {
-  const frequency = 'Monthly'
-  const netIncome = formatNumber(33500)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const { state } = location
+
+  const [frequency] = useState(state.frequency)
+
+  useEffect(() => {
+    if (!state) {
+      navigate('/')
+    }
+  }, [navigate, state])
 
   return (
     <div className="p-6 flex flex-col justify-between">
@@ -12,7 +29,7 @@ export const IncomeResult = () => {
           <div className="flex flex-col gap-y-3 justify-between">
             <span>
               Your net{' '}
-              <span className="font-bold text-base text-violet-600">
+              <span className="font-bold text-base text-violet-600 capitalize">
                 {frequency}
               </span>{' '}
               income:
@@ -24,8 +41,12 @@ export const IncomeResult = () => {
 
           <label className="flex flex-col gap-y-3 justify-between">
             <span>Change frequency:</span>
-            <Select>
-              <option value="monthly">Monthly</option>
+            <Select className="capitalize" defaultValue={state.frequency}>
+              {listFrequencies.map((frequency) => (
+                <option key={frequency} value={frequency}>
+                  {frequency}
+                </option>
+              ))}
             </Select>
           </label>
         </div>
