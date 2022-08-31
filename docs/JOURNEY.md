@@ -199,18 +199,6 @@ This is the core configuration because the tailwind was applied by PostCSS via W
 
 The TailwindCSS recommends that you install in your VS Code the [IntelliSense](https://tailwindcss.com/docs/editor-setup#intelli-sense-for-vs-code)
 
----
-
-## Design
-
-You'll find the Figma made in the following link:
-
-https://www.figma.com/file/8RpTyQixcl0pVIHoc3Oti8/Income-tax-calculator
-
-### Considerations
-
-To build the layout some characteristics were used looking for TailwindCSS patterns like spacing, colors, font size and other values.
-
 ## Jest setup
 
 ### Dependencies
@@ -236,3 +224,15 @@ To simulate user events was configured the [`userEvent`](https://testing-library
 ### Jest Eslint
 
 Looking to help with written tests was configured the jest Eslint plugin and added to `.eslintrc` the `'plugin:jest/recommended'` plugin.
+
+---
+
+## Design
+
+You'll find the Figma made in the following link:
+
+https://www.figma.com/file/8RpTyQixcl0pVIHoc3Oti8/Income-tax-calculator
+
+### Considerations
+
+To build the layout some characteristics were used looking for TailwindCSS patterns like spacing, colors, font size and other values.
