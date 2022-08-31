@@ -44,18 +44,18 @@ export const IncomeResult = () => {
   }, [state, backNavigation])
 
   return (
-    <div className="p-6 flex flex-col justify-between">
+    <div className="p-6 flex flex-col justify-between overflow-x-auto">
       <div>
         <div className="grid grid-cols-2 gap-x-4">
           <div className="flex flex-col gap-y-3 justify-between">
             <span>
               Your net{' '}
-              <span className="font-bold text-base text-violet-600 capitalize">
+              <span className="font-bold text-base text-emerald-600 capitalize">
                 {frequency}
               </span>{' '}
               income:
             </span>
-            <span className="text-4xl font-bold text-violet-600">
+            <span className="text-4xl font-bold text-emerald-600">
               {formatNumber(incomeTaxFrequencyCalculation?.netIncome)}
             </span>
           </div>
@@ -96,7 +96,7 @@ export const IncomeResult = () => {
       </div>
 
       <Button
-        className="w-3/4 self-center lg:mt-0 sm:mt-20"
+        className="w-3/4 self-center mt-10 lg:mt-0"
         variant="primary"
         onClick={backNavigation}
       >

@@ -8,7 +8,7 @@ export const TableRow = ({ item }) => {
 
   let classHighlightRow = ''
 
-  if (state.frequency === item.frequency) classHighlightRow = 'text-violet-600'
+  if (state.frequency === item.frequency) classHighlightRow = 'text-emerald-600'
 
   return (
     <tr key={item.frequency}>

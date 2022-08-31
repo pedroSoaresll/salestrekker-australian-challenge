@@ -11,14 +11,14 @@ export const Home = () => {
   const isIncomeResult = location.pathname === '/income-results'
 
   return (
-    <div className="flex flex-row justify-center items-center min-h-screen bg-violet-50">
+    <div className="flex flex-row justify-center items-center min-h-screen bg-emerald-50">
       <Card
-        className="grid lg:grid-cols-2 md:grid-cols-none overflow-hidden bg-white m-8"
+        className="grid lg:grid-cols-2 md:grid-cols-none bg-white m-8"
         style={{ minHeight: '500px' }}
       >
         {isHome && <CalculateIncome />}
 
-        <Card className=" bg-violet-200 flex items-center justify-center min-w-full">
+        <Card className=" bg-emerald-200 flex items-center justify-center min-w-full">
           {isHome && <CalculateIncomeImg />}
           {isIncomeResult && <IncomeResultImg />}
         </Card>

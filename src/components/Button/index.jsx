@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 const baseClasses = 'px-5 py-2 rounded-md transition-colors'
 const primaryButton =
-  'bg-violet-500 hover:bg-violet-600 focus:bg-violet-600 active:bg-violet-700 border-violet-500 text-white'
+  'bg-emerald-500 hover:bg-emerald-600 focus:bg-emerald-600 active:bg-emerald-700 border-emerald-500 text-white'
 const defaultButton =
   'bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 active:bg-gray-400 border-gray-500 text-black'
 
