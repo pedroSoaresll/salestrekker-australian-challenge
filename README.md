@@ -2,7 +2,7 @@
 
 This repository is about a front-end challenge for an Australian company.
 
-## About the journey
+## About the Journey
 
 You'll find more details about my journey on the [`docs/JOURNEY.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/JOURNEY.md)
 
@@ -17,6 +17,10 @@ This app was deployed into Vercel. Every push to the branch main will trigger a 
 [Access the app in the production environment](https://salestrekker-australian-challenge.vercel.app/)
 
 > Note: HTTPS is by default defined for the domain. :)
+
+## Unit Tests Coverage
+
+See the unit tests coverage in the [`docs/UNIT_TEST_COVERAGE.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/UNIT_TEST_COVERAGE.md)
 
 ## Install locally
 
