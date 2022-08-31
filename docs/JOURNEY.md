@@ -22,6 +22,16 @@ In this document, you'll find all details about my journey building this project
 - Build resources
 - To do everything from scratch
 
+## Design
+
+You'll find the Figma made in the following link:
+
+https://www.figma.com/file/8RpTyQixcl0pVIHoc3Oti8/Income-tax-calculator
+
+### Considerations
+
+To build the layout some characteristics were used looking for TailwindCSS patterns like spacing, colors, font size and other values.
+
 ## Planning the front-end software
 
 ### Project structure
@@ -224,15 +234,3 @@ To simulate user events was configured the [`userEvent`](https://testing-library
 ### Jest Eslint
 
 Looking to help with written tests was configured the jest Eslint plugin and added to `.eslintrc` the `'plugin:jest/recommended'` plugin.
-
----
-
-## Design
-
-You'll find the Figma made in the following link:
-
-https://www.figma.com/file/8RpTyQixcl0pVIHoc3Oti8/Income-tax-calculator
-
-### Considerations
-
-To build the layout some characteristics were used looking for TailwindCSS patterns like spacing, colors, font size and other values.
