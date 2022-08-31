@@ -173,6 +173,10 @@ To prepare the Webpack to work with Tailwind was necessary the config below:
 
 This is the core configuration because the tailwind was applied by PostCSS via Webpack loader. After this, the styles were applied in the `global.css` that is called in the `App.js`.
 
+### Tailwind VS Code extension
+
+The TailwindCSS recommends that you install in your VS Code the [IntelliSense](https://tailwindcss.com/docs/editor-setup#intelli-sense-for-vs-code)
+
 
 ---
 
