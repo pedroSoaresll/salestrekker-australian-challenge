@@ -4,7 +4,7 @@ This repository is about a front-end challenge for an Australian company.
 
 ## About the Journey
 
-You'll find more details about my journey on the [`docs/JOURNEY.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/JOURNEY.md)
+You'll find more details about my journey in the [`docs/JOURNEY.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/JOURNEY.md)
 
 ## Screenshots
 
@@ -21,6 +21,10 @@ This app was deployed into Vercel. Every push to the branch main will trigger a 
 ## Unit Tests Coverage
 
 See the unit tests coverage in the [`docs/UNIT_TEST_COVERAGE.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/UNIT_TEST_COVERAGE.md)
+
+## Build Analysis
+
+See the building analysis in the [`docs/BUILD_ANALYSIS.md`](https://github.com/pedroSoaresll/salestrekker-australian-challenge/blob/main/docs/BUILD_ANALYSIS.md)
 
 ## Install locally
 
