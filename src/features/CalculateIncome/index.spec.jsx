@@ -38,4 +38,15 @@ describe('features - <CalculateIncome />', () => {
       },
     })
   })
+
+  test('should show the error messages when submit form without fill the data', async () => {
+    render(<CalculateIncome />)
+
+    await userEvent.click(screen.getByText('Calculate'))
+    const errorMessage = await screen.findByText(
+      'The income value needs to be more than 0.'
+    )
+
+    expect(errorMessage).toBeInTheDocument()
+  })
 })
